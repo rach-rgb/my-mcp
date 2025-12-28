@@ -2,6 +2,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { z } from "zod";
 import express from "express";
+import cors from "cors";
 
 // 1. Create the MCP Server instance
 const server = new McpServer({
@@ -40,6 +41,8 @@ server.resource(
 
 // 4. Start the HTTP Server with SSE
 const app = express();
+app.use(cors()); // Allow all origins (required for PlayMCP)
+
 const PORT = process.env.PORT || 3000;
 
 // This object maps session IDs to transports
