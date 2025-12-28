@@ -1,0 +1,20 @@
+{
+  "name": "playmcp-hello-world",
+  "version": "1.0.0",
+  "description": "A simple Hello World MCP server for PlayMCP contest",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.1",
+    "@types/express": "^5.0.6",
+    "express": "^5.2.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}
