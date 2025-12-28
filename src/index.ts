@@ -49,7 +49,12 @@ const PORT = process.env.PORT || 3000;
 let transport: SSEServerTransport | null = null;
 
 app.get("/sse", async (req, res) => {
-  console.log("New connection established");
+  console.log(`New connection from ${req.ip}`);
+  console.log(`Headers: ${JSON.stringify(req.headers)}`);
+
+  // Render/Nginx specific header to disable buffering
+  res.setHeader('X-Accel-Buffering', 'no');
+
   transport = new SSEServerTransport("/messages", res);
   await server.connect(transport);
 });
